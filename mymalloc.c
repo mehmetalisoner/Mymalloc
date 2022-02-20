@@ -68,23 +68,3 @@ void *mymalloc(size_t mSize){
     printf("ERROR not enogh mm");
     return NULL;
 }
-void printcurrmem(){
-    MDM* CURR = (MDM*) mem;
-    int FAGCOUNT=0;
-    int BYTETR=0;
-    while((char*) CURR <&mem[MAXMEM-1]){
-        FAGCOUNT++;
-        printf("memory frag #%d : Allocated : " , FAGCOUNT);
-        if(CURR->allocate=='0'){
-            printf("N, size: %d\n", CURR->size);
-            
-        }else{
-            printf("y, size: %d\n", CURR->size);
-        }
-        BYTETR+=sizeof(MDM)+CURR->size;
-        CURR=NEXT(CURR);}
-        printf("total bytes in mem : %d\n ", BYTETR);
-        printf("--------------\n");
-
-
-    }
