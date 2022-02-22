@@ -14,7 +14,7 @@ struct MDM {                        // metadata class, this is how we will store
     unsigned int size;
 };
 
-static struct MDM *global_start = NULL;     // this will be a global pointer that we can refert to. 
+static struct MDM *global_start = NULL;     // this will be a global pointer that we can refert to. Might not need this
                                             // initially it will be the first block but after mallocing, it will be the last
 
 void init_memory(){
