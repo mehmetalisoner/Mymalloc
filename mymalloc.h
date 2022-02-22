@@ -6,7 +6,7 @@ typedef struct MDM{
    
     unsigned int size;
     int isfree;
-    char allocate;
+    char allocate;         // Question: is this same int isFree? If yes, then we can just get delete int isFree
 }MDM;
     
 
