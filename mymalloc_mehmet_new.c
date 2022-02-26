@@ -35,7 +35,6 @@ void *mymalloc(size_t mSize, char *file, int line)
             if(leftover_Memory <= sizeof(MDM)){                         // if the leftover memory cannot hold an MDM struct
                 if (is_Last(ptr) == 0) ptr->size+=leftover_Memory;      // if ptr is the last block, then undo and add mSize back to the main free memory
                 else ptr->size += leftover_Memory;                      // if not, put in more bytes into ptr in order to maintain memory structure
-                //ptr->size+=leftover_Memory;
             }
             else if(rigth_Block + sizeof(MDM)< &memory[MEMSIZE])        // if we have enough space then
             {
