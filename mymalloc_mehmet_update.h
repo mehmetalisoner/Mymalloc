@@ -7,18 +7,14 @@
 #define free(p) myfree(p, __FILE__, __LINE__)
 
 
-struct MDM {                        // metadata class, this is how we will store our data into memory
-    // struct MDM *prev, *next;
-    // void* start_of_data;
-    char isFree;                     // free == '1', not free == '0'.
-    unsigned int size;
+struct MDM {                         // metadata class, this is how we will store our data into memory
+    unsigned int size;               // 4 bytes
+    char isFree;                     // not free == '1', free == '0'. 1 bytes
 };
 
 typedef struct MDM MDM;
 void *mymalloc(size_t size, char *file, int line);
 void myfree(void *p, char *file, int line);
-void *get_start_of_data(struct MDM* p);
-int is_Last(struct MDM* p);
+void *get_start_of_data(MDM* p);
+int is_Last(MDM* p);
 struct MDM *get_next(struct MDM* ptr);
-void check_and_merge_rightBlock(MDM* ptr);                                   
-void check_and_merge_leftBlock(MDM* ptr, MDM* prev); 
